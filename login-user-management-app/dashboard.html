@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Painel de Controle</title>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Bem-vindo ao Painel do Usuário</h1>
+            <nav>
+                <ul>
+                    <li><a href="#vendas-fisicas" class="active">Controle Vendas Físicas</a></li>
+                    <li><a href="#vendas-online">Controle Vendas Online</a></li>
+                    <li><a href="#controle-total">Controle Total</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="vendas-fisicas" class="tab-content">
+                <h2>Controle Vendas Físicas</h2>
+                <p>Conteúdo para Controle Vendas Físicas aqui.</p>
+            </section>
+            <section id="vendas-online" class="tab-content" style="display:none;">
+                <h2>Controle Vendas Online</h2>
+                <p>Conteúdo para Controle Vendas Online aqui.</p>
+            </section>
+            <section id="controle-total" class="tab-content" style="display:none;">
+                <h2>Controle Total</h2>
+                <p>Conteúdo para Controle Total aqui.</p>
+            </section>
+        </main>
+    </div>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
