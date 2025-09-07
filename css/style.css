@@ -2,24 +2,30 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #121212; /* Dark background for nocturnal theme */
-    color: #e0e0e0; /* Light text color for readability */
+    background-color: #121212; /* Fundo escuro */
+    color: #e0e0e0; /* Texto claro para contraste */
     display: flex;
+    flex-direction: column; /* Organiza os filhos verticalmente */
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('../images/background.jpg'); /* Keeping the image, but it will be overlaid */
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay; /* Blend the image with the dark background */
-    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+.logo-container {
+    margin-bottom: 2rem;
+}
+
+.logo-container img {
+    max-width: 150px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
 }
 
 .login-container {
     width: 90%;
     max-width: 400px;
     padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent dark container */
+    background-color: rgba(0, 0, 0, 0.75); /* Container semi-transparente */
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
@@ -33,6 +39,7 @@ h1 {
 
 .input-group {
     margin-bottom: 1.5rem;
+    text-align: left;
 }
 
 label {
@@ -64,7 +71,7 @@ input[type="password"]:focus {
 button {
     width: 100%;
     padding: 12px;
-    background-color: #007bff; /* A bright color for the main action */
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -98,37 +105,4 @@ button:hover {
     h1 {
         font-size: 1.8rem;
     }
-}
-
-/* Dashboard Specific Styles (Kept from original) */
-.dashboard-container {
-    padding: 20px;
-    background-color: #ffffff; /* Dashboard can have a light theme */
-    color: #333;
-    border-radius: 10px;
-    width: 95%;
-    max-width: 1200px;
-    margin: 20px auto;
-}
-
-.tab {
-    display: inline-block;
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 5px;
-}
-
-.tab.active {
-    background-color: #007bff;
-    color: white;
-}
-
-.tab-content {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
