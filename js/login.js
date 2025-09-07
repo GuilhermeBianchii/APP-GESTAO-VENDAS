@@ -1,40 +1,27 @@
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
-}
+document.getElementById('login-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
 
-function validatePassword(password) {
-    return password.length >= 6; // Exemplo: comprimento mínimo da senha
-}
-
-function login() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    if (!validateEmail(email)) {
-        alert('Por favor, insira um endereço de e-mail válido.');
-        return;
+    try {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password }),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            window.location.href = data.redirectUrl;
+        } else {
+            const message = await response.text();
+            alert(message);
+        }
+    } catch (error) {
+        console.error('Erro ao fazer login:', error);
+        alert('Ocorreu um erro ao tentar fazer login. Tente novamente.');
     }
-
-    if (!validatePassword(password)) {
-        alert('A senha deve ter pelo menos 6 caracteres.');
-        return;
-    }
-
-    // Simula a verificação de credenciais (substitua pela verificação real no banco de dados)
-    const validCredentials = {
-        email: 'user@example.com',
-        password: 'password123'
-    };
-
-    if (email === validCredentials.email && password === validCredentials.password) {
-        window.location.href = 'dashboard.html'; // Redireciona para o painel
-    } else {
-        alert('E-mail ou senha inválidos. Por favor, tente novamente.');
-    }
-}
-
-document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    login();
 });
